@@ -11,6 +11,6 @@ object CSV {
               (arr(0), arr(1))
         }) 
         //将结果保存到本地文件系统中
-        rdd1.saveAsTextFile("file:///home/hadoop/spark/src/main/resources/data/out/vsv")
+        rdd1.saveAsTextFile("file:///home/hadoop/spark/src/main/resources/data/out/csv")
     }
 }
