@@ -17,6 +17,7 @@ import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.jets3t.service.utils.RestUtils;
 
 
 public class HbaseUtil {
@@ -77,6 +78,18 @@ public class HbaseUtil {
         try (Table table = HbaseConn.getTable(tableName)) {
             Put put = new Put(Bytes.toBytes(rowKey));   //行键
             put.addColumn(Bytes.toBytes(cf), Bytes.toBytes(qualifier), Bytes.toBytes(value));
+            table.put(put);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean putRow(String tableName, String rowKey, String cf,String value) {
+        try (Table table = HbaseConn.getTable(tableName)) {
+            Put put = new Put(Bytes.toBytes(rowKey));   //行键
+            put.add(Bytes.toBytes(cf), Bytes.toBytes(value));
             table.put(put);
             return true;
         } catch (Exception e) {
@@ -195,4 +208,6 @@ public class HbaseUtil {
         }
         // return null;
     }
+
+
 }
