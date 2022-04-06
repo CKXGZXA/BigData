@@ -1,7 +1,7 @@
 
 // The simplest possible sbt build file is just one line:
 
-scalaVersion := "2.10.6"
+scalaVersion := "2.11.8"
 // That is, to create a valid sbt build, all you've got to do is define the
 // version of Scala you'd like your project to use.
 
@@ -26,7 +26,23 @@ version := "1.0"
 // You can define other libraries as dependencies in your build like this:
 
 // libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "2.1.1"
-libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.3"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "2.2.0"
+libraryDependencies += "org.apache.hbase" % "hbase" % "1.7.1" pomOnly()
+// https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client
+libraryDependencies += "org.apache.hadoop" % "hadoop-client" % "2.6.5"
+// https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common
+libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "2.6.5"
+// https://mvnrepository.com/artifact/org.apache.hbase/hbase-client
+libraryDependencies += "org.apache.hbase" % "hbase-client" % "1.7.1"
+// https://mvnrepository.com/artifact/org.apache.hbase/hbase-common
+libraryDependencies += "org.apache.hbase" % "hbase-common" % "1.7.1"
+// https://mvnrepository.com/artifact/org.apache.hbase/hbase-server
+libraryDependencies += "org.apache.hbase" % "hbase-server" % "1.7.1"
+// https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs
+libraryDependencies += "org.apache.hadoop" % "hadoop-hdfs" % "2.6.5" % Test
+
+
+
 
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the scala-parser-combinators dependency to the set of dependencies
@@ -68,10 +84,10 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % "1.6.3"
 // lazy val root = (project in file(".")).
 //   settings(
 //     inThisBuild(List(
-//       organization := "ch.epfl.scala",
+//       organization := "indi.ckxg",
 //       scalaVersion := "2.13.8"
 //     )),
-//     name := "hello-world"
+//     name := "SparkPractice",
 //   )
 
 // To learn more about multi-project builds, head over to the official sbt
